@@ -1,0 +1,6 @@
+I am feeling energetic today. But can we encrypt what I am writing?
+Writing multiline comments
+Just to fill this file.
+Nothing else.
+Ok. Much more.
+Now a 6th liner comment

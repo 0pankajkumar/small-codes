@@ -1,0 +1,16 @@
+
+# Complete the birthdayCakeCandles function below.
+def birthdayCakeCandles(ar):
+    count = 1
+    max = ar[i]
+    for i in range(0,ar_count):
+        if ar[i+1] > max:
+            max == ar[i+1]
+            if count > 1:
+                count = 1
+        elif ar[i+1] == max:
+            count += 1
+    
+    return count
+
+print birthdayCakeCandles(3,2,1,3)
