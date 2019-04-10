@@ -1,0 +1,1 @@
+34192547269;b"Researchers have developed a novel approach to optimizing soft material 3D printing. The researchers' Expert-Guided Optimization method combines expert judgment with an optimization algorithm that efficiently searches combinations of parameters relevant for 3D printing, enabling high-fidelity soft material products to be printed."

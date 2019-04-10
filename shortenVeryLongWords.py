@@ -1,6 +1,9 @@
 '''
 Program to abbrevate very long words ( > 10 alphabets)using a notation
 eg: "localization" will be spelt as "l10n", and "internationalization» will be spelt as "i18n"
+
+//Made for submission at codeforces
+//by Pankaj Kumar
 '''
 
 
