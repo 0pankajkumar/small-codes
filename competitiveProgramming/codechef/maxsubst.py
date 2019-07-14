@@ -1,37 +1,33 @@
-# cook your dish here
-cases, le = map(int, input().split())
-print(cases)
-def Prime(n):
-    if n & 1 == 0:
-        return False
-    d= 3
-    while d * d <= n:
-        if n % d == 0:
-            return d
-        d= d + 2
-    return True
 
-a = input().split()
+cases = int(input())
+
+class element:
+	def __init__(self, val):
+		self.prev = None
+		self.next = None
+		self.val = val
+
+
+
+
+
 
 for cas in range(cases):
-	#q,n = map(int, input().split())
+	leng = int(input())
+	ar = input().split()
+
+	arr = [int(a) for a in ar]
+
 	
-	one, two, three = map(int, input().split())
 
-	if one == '1':
-		#Prime wala
-		start = int(two)
-		end = int(three)
-
-		count = 0 
-
-		for i in range(start, end+1):
-			if Prime(a[i]):
-				count += 1
-		print(count)
-
-
-
-	if one == '2':
-		#Replace wala
-		a[int(two)] = int(three)
+	for i in range(leng):
+		start = i
+		if arr[i+1] == arr[i]:
+			end = i+1
+		elif arr[i+1] + 1 == arr[i]:
+			arr[i+1] += 1
+			end = i+1
+		elif arr[i] + 1 == arr[i+1]:
+			arr[i] += 1
+			start = i
+	print(f"i={i} , j={j}")
