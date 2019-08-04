@@ -1,13 +1,18 @@
-def Prime(n):
-	if n == 2:
-		return True
-    if n & 1 == 0:
-        return False
-    d= 3
-    while d * d <= n:
-        if n % d == 0:
-            return d
-        d= d + 2
-    return True
 
-print(Prime(3))
+
+
+def putZerosOnRepeat(a):
+    b = list(str(a))
+    temp = "X"
+    for i in range(len(b)):
+        if b[i] == temp:
+            b[i] = "0"
+        else:
+            temp = b[i]
+    c = ''.join(b)
+    print(int(c))
+
+putZerosOnRepeat(66667122336778)
+
+
+
