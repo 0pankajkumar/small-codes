@@ -24,14 +24,14 @@ def calculate():
             t2 = time.time()
             print(f"Time taken : {t2- t1}")
             return
-            
+
 
     # if N == 0 and i == K:
     #     print("NO")
     # else:
     #     print("YES")
-    
-    
+
+
 cases = int(input())
 
 for cas in range(cases):
