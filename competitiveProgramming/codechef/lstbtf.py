@@ -11,6 +11,11 @@ def combineNosCountDigits(a, b):
 		count2 += 1
 	return count1 + count2
 
+def itDosentHasZeros(p, q):
+	s = str(p) + str(q)
+	ct = s.count('0')
+	return True if ct == 0 else False
+
 def getFirstNDigitNumber(triplet, N):
 	a = triplet[0]
 	b = triplet[1]
@@ -18,13 +23,29 @@ def getFirstNDigitNumber(triplet, N):
 	i = 1
 
 	while (found == False):
-		a = a * i
-		b = b * i
-		if combineNosCountDigits(a, b) == N:
-			found = True
-			return (a, b)
+		p = a * i
+		q = b * i
+		i += 1
+		tem = ()
+		print(p, q)
 
+		totalNumberOfDigits = combineNosCountDigits(p, q)
+		if totalNumberOfDigits == N:
+			if itDosentHasZeros(p , q):
+				found = True
+				print("It doesnt has zeros")
+				tem = (p, q)
+				return (p, q)
+			else:
+				found = False
+		elif totalNumberOfDigits > N:
+			return () 
+			
+	return tem
 
+def glue(g):
+	if len(g) != 0:
+		return int(str(g[0]) + str(g[1]))
 
 
 
@@ -38,14 +59,25 @@ for cas in range(cases):
 	# Get first N digit a, b from (5,12,13)
 	g = getFirstNDigitNumber((5,12,13), N)
 
-	print(f, g)
+	print("Here come f g", f, g)
 
 	# Pick the smallest of the two
-
-	# If it contains zero loop & get the next non zero pair
-
 	# Join those two numbers as string and print
 
+	f = glue(f)
+	g = glue(g)
+
+	if f is None:
+		print(g)
+	else:
+		if g is None:
+			print(f)
+		elif f < g:
+			print(f)
+		else:
+			print(g)
+
+	
 
 
 

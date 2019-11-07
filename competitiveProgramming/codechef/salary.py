@@ -1,3 +1,5 @@
+# Brute force approch
+
 # Receiving TLE on codechef
 def smartMaxsIndex(W, i):
 
@@ -67,4 +69,5 @@ for cas in range(cases):
 16 17 16 16
 17 17 17 17
 
+35 - 4*6 = 11
 '''
