@@ -71,3 +71,42 @@ for cas in range(cases):
 
 35 - 4*6 = 11
 '''
+
+
+
+
+import math
+# pyhton code
+s = '100'
+
+# 0 = (2^0 * 0)
+# 0 = ()
+
+# for i in range(len(s) - 1, 1, -1):
+
+i = 0
+totSum = 0
+while(len(s) != 0):
+	temp = s[-1]
+
+	p = math.pow(2,i) * int(temp)
+
+	totSum += p 
+
+	i += 1
+
+print(totSum)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

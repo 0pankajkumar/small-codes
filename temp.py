@@ -1,10 +1,18 @@
-print "How old are you:",
-age = input()
+import math
+s = '1100'
 
-print "How tall are you?",
-height = input()
+i = 0
+totSum = 0
+while(len(s) != 0):
+	temp = s[-1]
 
-print "How much do you weigh?",
-weight = input()
+	p = math.pow(2,i) * int(temp)
 
-print "So you are %r years old with %r height & %r kgs weight" % (age, height, weight)
+	totSum += p 
+
+	i += 1
+
+	s = s[:-1]
+
+print(totSum)
+
