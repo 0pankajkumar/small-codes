@@ -20,9 +20,35 @@ def getPath(g, start, end, path = []):
 		if sas not in path:
 			de = getPath(g, sas, end, path)
 		if de:
-			return path
+			if len(de) > 1:
+				for d in de:
+					if d not in path:
+						path.append(d)
+				return path
+			else:
+				return path +[de]
 	return None
 
-#path = []
-print(getPath(g, 'a', 'd'))
-#print(path)
+def getAllPaths(g, start, end, path = []):
+	path = path + [start]
+	if start == end:
+		return [path]
+	if start not in g:
+		return []
+	
+	for sas in g[start]:
+		if sas not in path:
+			de = getPath(g, sas, end, path)
+		if de:
+			if len(de) > 1:
+				for d in de:
+					if d not in path:
+						path.append(d)
+				return path
+			
+	return path
+
+# print(getPath(g, 'a', 'c'))
+print(getAllPaths(g, 'a', 'd'))
+
+
