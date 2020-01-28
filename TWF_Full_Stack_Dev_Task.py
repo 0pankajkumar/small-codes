@@ -48,7 +48,7 @@ def getPath(g, kk, k, v, total=0):
 		total += getDistance(g, kk, k, v)
 		getPath(g, kk, k, v, total)
 
-		
+
 
 def allPathHelper(g):
 	# for each vertex in graph
@@ -56,8 +56,8 @@ def allPathHelper(g):
 
 	for kk, vv in g.items():
 		for k,v in g[kk].items():
-			print(kk, k, v, type(v))
-			total = 0 
+			# print(kk, k, v, type(v))
+			
 			total = getPath(g, kk, k, v)
 			print(total)
 
