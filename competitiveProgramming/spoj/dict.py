@@ -17,6 +17,7 @@ class Trie:
 
         for w in word:
             i += 1
+            
             if w in node.next:
                 node = node.next[w]
             else:

@@ -22,6 +22,7 @@ for _ in range(int(input())):
 				i += 1
 			else:
 				break
-		limiter += 1
+		if limiter+1 < p:
+			limiter += 1
 			
 	print(brr)

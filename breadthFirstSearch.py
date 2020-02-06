@@ -13,7 +13,7 @@ myGraph['h'] = []
 
 discoveredList = [0] * len(myGraph)
 print(discoveredList)
-def bfs(myGraph,startVertex):
+def bfs(myGraph,startVertex):	
 	Q = []
 	discoveredList[ord(startVertex) - 97] = 1
 	Q.append(startVertex)
