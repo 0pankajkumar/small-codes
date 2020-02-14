@@ -11,7 +11,9 @@ def stairs(remaining):
 		memo[remaining] = 2
 		return 2
 	else:
-		return stairs(remaining - 1) + stairs(remaining - 2) + stairs(remaining - 3)
-		
+		qu = stairs(remaining - 1) + stairs(remaining - 2) + stairs(remaining - 3)
+		memo[remaining] = qu
+		return qu
+
 ans = stairs(10)
 print(ans)
