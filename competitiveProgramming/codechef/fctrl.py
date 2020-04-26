@@ -3,6 +3,9 @@
 import sys
 sys.stdin = open("input.txt", 'r')
 
+bank2 = dict()
+bank5 = dict()
+
 def get2n5(n):
 	two = 0
 	five = 0
@@ -21,15 +24,18 @@ def getZeros(n):
 	fi = 0
 	while n > 1:
 		two, five = get2n5(n)
+		# bank2[n] = two
+		# bank5[n] = five
 		tw += two
 		fi += five
 		n -= 1
 	
 	print("Finised getting zeros")
 	t = min(tw,fi)
-	zee = pow(10,t)
-	zee = str(zee)
-	return zee.count('0')
+	return t
+	# zee = pow(10,t)
+	# zee = str(zee)
+	# return zee.count('0')
 	
 	
 	
