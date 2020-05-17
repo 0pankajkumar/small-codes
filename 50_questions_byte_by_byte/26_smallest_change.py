@@ -23,18 +23,22 @@ def minCoins(coins, i, amount, fing):
 
 
 # The woking solution
-def minCoins22(coins, amount):
+def minCoins22(coins, amount,dp):
+	if dp[amount] is not None:
+		return dp[amount]
 	if amount == 0:
 		return 0
 	if amount < 0:
 		return 9999
 	bucket = 9999
 	for i in range(len(coins)):
-		bucket = min(bucket, 1+minCoins22(coins, amount-coins[i]))
+		bucket = min(bucket, 1+minCoins22(coins, amount-coins[i],dp))
+	dp[amount] = bucket
 	return bucket
 
 coins = [9,6,5,1]
 amount = 11
 fing = 0
 # print(minCoins(coins,0,amount, fing))
-print(minCoins22(coins,amount))
+dp = [None]*(amount+1)
+print(minCoins22(coins,amount,dp))
