@@ -49,6 +49,67 @@ def tree2DLL(root):
 	l2.left = r2
 	return l1, r2
 
+def getDLL_helper(root, direction):
+	if root.left or root.right is None:
+		return None
+	t1 = root.left
+	t2 = root
+	t3 = root.right
+
+
+	if direction == "right":
+		t1.left = root
+	else:
+		t1.left = None
+
+	t1.right = t2
+	t2.left = t1
+	t2.right = t3
+	t3.left = t2
+
+	if direction == "left":
+		t3.right = root
+	else:
+		t3.right = None
+
+def getDLL(root, direction):
+	if root is None or root.left is None or root.right is None:
+		return None
+	else:
+		getDLL_helper(root, "left")
+		getDLL_helper(root, "right")
+
+	getDLL(root.left, "left")
+	getDLL(root.right, "right")
+
+def concatenate(a,b):
+	if a is None:
+		return b
+	elif b is None:
+		return a
+
+	aEnd = a.left
+	bEnd = b.left
+
+	a.left = bEnd
+	bEnd.right = a
+	aEnd.right = b
+	b.left = aEnd
+	return a
+
+def treeToList(n):
+	if n is None:
+		return n
+	leftList = treeToList(n.left)
+	rightList = treeToList(n.right)
+
+	n.left = n
+	n.right = n
+
+	n = concatenate(leftList, n)
+	n = concatenate(n, rightList)	
+
+	return n
 
 # Constructing tree of two children type
 four = Node(None,None, 4)
@@ -62,4 +123,15 @@ three = Node(six, seven, 3)
 one = Node(two, three, 1)
 
 
-x,y = tree2DLL(one)
+# x,y = tree2DLL(one)
+
+# getDLL(one, "")
+
+ans = treeToList(one)
+
+c=7
+while c:
+	print(ans.value)
+	ans = ans.left
+	c-=1
+

@@ -43,6 +43,38 @@ def dijkstra(graph, sou, dest):
 	return dist[dest]
 
 
+from queue import Queue
+def usingBFS(graph, sou, dest):
+	print("entered")
+	# if sou or dest is None:
+	# 	print(sou, dest)
+	# 	print("One of them is None")
+	# 	return None
+
+	q = Queue()
+	parentBank = dict()
+	print("temp vaibales created")
+
+	q.put_nowait(sou)
+
+	print("bfs begins")
+	while q.qsize() > 0:
+		curr = q.get_nowait()
+		for c in graph[curr]:
+			if c not in parentBank:
+				q.put_nowait(c)
+				parentBank[c] = curr
+	print("bfs complete")
+
+	ansList = [dest]
+	curr = dest
+	while curr != sou:
+		print("finding using parents")
+		if curr in parentBank:
+			ansList.append(parentBank[curr])
+			curr = parentBank[curr]
+
+	return ansList
 
 
 def shortestPath22(graph, source, destination, visited, dist):
@@ -93,10 +125,14 @@ graph = {
 }
 
 source = 2
-destination = 5
+destination = 3
 ans = list()
 # print(shortestPath22(graph, source, destination, set(), 0))
 # shortestPath(graph, source, destination, set(), 0, ans)
 # print(ans)
 
-print(dijkstra(graph, source, destination))
+# print(dijkstra(graph, source, destination))
+
+ans = usingBFS(graph, source, destination)
+
+print(ans[::-1])

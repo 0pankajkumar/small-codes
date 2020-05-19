@@ -20,14 +20,14 @@ class Stack():
 		self.array = [None]*arraySize
 		self.listOfStacks=list()
 
-		intervals = ceil(arraySize/noOfStacks)
+		self.intervals = ceil(arraySize/noOfStacks)
 
 		try:
 			start=0
 			for i in range(noOfStacks):
 				t = StackBox(start,start)
 				self.listOfStacks.append(t)
-				start+=intervals
+				start+=self.intervals
 
 			print(f"{noOfStacks} stacks created")
 		except:
@@ -38,6 +38,7 @@ class Stack():
 
 	def makeSomeSpace(self, stackNumber, start, end):
 		def lookLeft(stackNumber, start, end):
+			return True
 			# loook for space in the left direction
 			los = self.listOfStacks
 			arr = self.array
@@ -64,6 +65,7 @@ class Stack():
 
 		def lookRight(stackNumber, start, end):
 			# look for space in right direction
+			print("lookright invoked")
 			los = self.listOfStacks
 			arr = self.array
 
@@ -73,7 +75,7 @@ class Stack():
 			if end+1 == len(self.array):
 				return False
 
-			print("1.start,end",start,end)
+			# print("1.start,end",start,end)
 			
 			if arr[los[stackNumber].end + 1] is not None:
 				start = los[stackNumber + 1].start
@@ -81,12 +83,13 @@ class Stack():
 				if not lookRight(stackNumber+1, start, end):
 					return False
 			
-			print("2.start,end",start,end)
+			# print("2.start,end",start,end)
 
 			# shift this stack one step right
 			for i in range(end+1, start,-1):
+				print(i,i-1)
 				arr[i] = arr[i-1]
-			arr[start] = None
+			# arr[start] = None
 			los[stackNumber].start += 1
 			los[stackNumber].end += 1
 			return True
@@ -147,6 +150,6 @@ s.pushAtI(1,12)
 s.pushAtI(0,6)
 
 ss = s.listOfStacks
-print("first", ss[0].start, ss[0].end)
-print("second", ss[1].start, ss[1].end)
+# print("first", ss[0].start, ss[0].end)
+# print("second", ss[1].start, ss[1].end)
 print(s.array)

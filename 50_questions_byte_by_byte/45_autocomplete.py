@@ -6,11 +6,11 @@ prefix
 # Trie data structure
 class Trie(object):
 	"""docstring for Trie"""
-	def __init__(self, value, nextt=dict(), isWord=False):
+	def __init__(self, value):
 		super(Trie, self).__init__()
 		self.value = value
-		self.nextt = nextt
-		self.isWord = isWord
+		self.nextt = dict()
+		self.isWord = False
 
 
 def addWord(start, word):
@@ -38,17 +38,18 @@ def checkWord(start, word):
 
 	return False
 
-def getSuffixUtility(root,ans):
+def getSuffixUtility(root, ans, bigans):
+	ans.append(root.value)
 	if root.isWord:
-		# ans.append("")
-		return
+		# t = ''.join(ans)
+		# bigans.append(t)
+		return root.value
 
 	for k,v in root.nextt.items():
-		ans.append(k)
-		getSuffixUtility(v, ans)
-
-	ans.append(root.value)
-
+		t = getSuffixUtility(v, ans, bigans)
+		t1 = ''.join(t)
+		bigans.append(t1)
+		
 
 def getSuffixWords(start, prefix):
 
@@ -64,25 +65,28 @@ def getSuffixWords(start, prefix):
 
 	# check for words
 	ans = []
-	getSuffixUtility(root, ans)
-	return ans
+	getSuffixUtility(root, [], ans)
+	print(ans)
+	packedans = []
+	for a in ans:
+		t = prefix[:-1] + ''.join(a)
+		packedans.append(t)
+	return packedans
 	
 
 
 
 root = Trie(".")
-print(root.nextt)
-addWord(root, "ant")
-print(root.nextt)
-
-# print(root.nextt['a'].nextt['a'].nextt['a'].nextt['a'].nextt['a'].nextt['a'].nextt['a'].nextt['a'])
-
+addWord(root, "anc")
 addWord(root, "anti")
-print(root.nextt)
+addWord(root, "anty")
+addWord(root, "antys")
+
 checkWord(root, "anty")
 
 # for k,v in root.nextt.items():
 # 	print(k,end=" ")
 
-getSuffixWords(root, "an")
+ans = getSuffixWords(root, "ant")
+print(ans)
 		
