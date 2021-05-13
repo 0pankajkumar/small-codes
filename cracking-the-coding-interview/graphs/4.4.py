@@ -7,7 +7,7 @@ node never differ by more than one.
       1  2
     3  4 5 6
 """
-`
+
 # Prints True if tree is skewed
 
 def printTree(root):
